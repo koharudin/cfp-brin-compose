@@ -17,7 +17,7 @@ services:
       - 6379:6379
   db:
     ports:
-      - 5432:5432
+      - 5433:5432
     image: postgres:latest
     environment:
       - POSTGRES_DB=db
@@ -26,12 +26,15 @@ services:
       - TZ=Asia/Jakarta
     volumes:
       - ./docker-dev-volumes/pg_data:/var/lib/postgresql/data  # Persist PostgreSQL data
+      - ./docker-dev-volumes/data:/opt/temp  # Persist PostgreSQL data
   prod_app:
     build:
       context: .
       dockerfile: Dockerfile-prod_app
     ports:
       - 82:80
+    depends_on:
+      - db
     volumes:
       - ./prod_app:/var/www
       - ./prod_app/public:/var/www/html
