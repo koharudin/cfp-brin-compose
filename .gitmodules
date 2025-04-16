@@ -2,3 +2,11 @@
 	path = prod_app
 	url = https://gitlab.brin.go.id/brinrockstar/cfp
 	branch = master
+[submodule "cfp_risnov"]
+	path = cfp_risnov
+	url = https://gitlab.brin.go.id/brinrockstar/cfp
+	branch = main
+[submodule "cfp_or"]
+	path = cfp_or
+	url = https://gitlab.brin.go.id/brinrockstar/cfp-or
+	branch = main
